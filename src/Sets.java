@@ -1,17 +1,6 @@
 import java.util.*;
 
-class Person
-{
-    private String name;
 
-    public Person(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
 public class Sets
 {
     public static void main(String[] args) {
@@ -30,9 +19,9 @@ public class Sets
         states.remove("Germany");
         System.out.println(states);
         HashSet<Person> peoples=new HashSet<>();
-        peoples.add(new Person("Mike"));
-        peoples.add(new Person("Tom"));
-        peoples.add(new Person("Jerry"));
+        peoples.add(new Person("Mike",56));
+        peoples.add(new Person("Tom",67));
+        peoples.add(new Person("Jerry",19));
         for (Person p:peoples) {
             System.out.println(p.getName()+" "+p.hashCode());
         }
@@ -302,5 +291,12 @@ public class Sets
         System.out.println(setLower);
         SortedSet<String> setGreate=treeSet.tailSet("Germany");
         System.out.println(setGreate);
+
+        PersonComparator pcomp=new PersonComparator();
+        TreeSet<Person> people=new TreeSet<>(new PersonAgeComparator());
+        people.add(new Person("Mike",34));
+        people.add(new Person("Tom",15));
+        people.add(new Person("Jerry",78));
+        for(Person p:people) System.out.println(p.getName());
     }
 }
