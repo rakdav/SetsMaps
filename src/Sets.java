@@ -291,12 +291,17 @@ public class Sets
         System.out.println(setLower);
         SortedSet<String> setGreate=treeSet.tailSet("Germany");
         System.out.println(setGreate);
-
+        Iterator<String> iter=treeSet.iterator();
+        while (iter.hasNext())
+        {
+            System.out.println(iter.next());
+        }
         PersonComparator pcomp=new PersonComparator();
         TreeSet<Person> people=new TreeSet<>(new PersonAgeComparator());
         people.add(new Person("Mike",34));
         people.add(new Person("Tom",15));
         people.add(new Person("Jerry",78));
         for(Person p:people) System.out.println(p.getName());
+
     }
 }
